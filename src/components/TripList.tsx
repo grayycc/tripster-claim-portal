@@ -9,6 +9,7 @@ type Trip = {
   amountPurpose: string;
   date: Date;
   status: "Pending" | "Approved" | "Reimbursed";
+  staffName: string;
 };
 
 const statusColors = {
@@ -23,7 +24,10 @@ export const TripList = ({ trips }: { trips: Trip[] }) => {
       {trips.map((trip, index) => (
         <Card key={index}>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-lg font-bold">{trip.destination}</CardTitle>
+            <div>
+              <CardTitle className="text-lg font-bold">{trip.destination}</CardTitle>
+              <div className="text-sm text-muted-foreground">Submitted by: {trip.staffName}</div>
+            </div>
             <Badge className={statusColors[trip.status]}>{trip.status}</Badge>
           </CardHeader>
           <CardContent>
