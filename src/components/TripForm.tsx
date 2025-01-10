@@ -18,6 +18,7 @@ export const TripForm = ({ onSubmit }: { onSubmit: (trip: any) => void }) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const tripData = {
+      staffName: formData.get("staffName"),
       destination: formData.get("destination"),
       purpose: formData.get("purpose"),
       amount: formData.get("amount"),
@@ -37,6 +38,16 @@ export const TripForm = ({ onSubmit }: { onSubmit: (trip: any) => void }) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="space-y-2">
+        <Label htmlFor="staffName">Staff Name</Label>
+        <Input 
+          id="staffName" 
+          name="staffName" 
+          required 
+          placeholder="Enter your full name"
+        />
+      </div>
+
       <div className="space-y-2">
         <Label htmlFor="destination">Destination</Label>
         <Input id="destination" name="destination" required placeholder="Enter trip destination" />
