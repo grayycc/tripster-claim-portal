@@ -4,7 +4,26 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 
 const Manager = () => {
-  const [trips, setTrips] = useState<any[]>([]);
+  const [trips, setTrips] = useState<any[]>([
+    {
+      destination: "San Francisco",
+      purpose: "Client Meeting",
+      amount: "500",
+      amountPurpose: "Flight tickets and accommodation",
+      date: new Date(),
+      status: "Pending",
+      staffName: "John Doe"
+    },
+    {
+      destination: "New York",
+      purpose: "Conference",
+      amount: "800",
+      amountPurpose: "Conference tickets and hotel",
+      date: new Date(),
+      status: "Pending",
+      staffName: "Jane Smith"
+    }
+  ]);
   const { toast } = useToast();
 
   const handleApprove = (tripIndex: number) => {
