@@ -21,6 +21,7 @@ export const TripForm = ({ onSubmit }: { onSubmit: (trip: any) => void }) => {
       destination: formData.get("destination"),
       purpose: formData.get("purpose"),
       amount: formData.get("amount"),
+      amountPurpose: formData.get("amountPurpose"),
       date: date,
       status: "Pending",
     };
@@ -87,6 +88,16 @@ export const TripForm = ({ onSubmit }: { onSubmit: (trip: any) => void }) => {
           min="0"
           step="0.01"
           placeholder="Enter amount to be reimbursed"
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="amountPurpose">Amount Purpose</Label>
+        <Input
+          id="amountPurpose"
+          name="amountPurpose"
+          required
+          placeholder="What is this amount for? (e.g., meals, transportation)"
         />
       </div>
 

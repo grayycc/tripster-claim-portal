@@ -6,6 +6,7 @@ type Trip = {
   destination: string;
   purpose: string;
   amount: string;
+  amountPurpose: string;
   date: Date;
   status: "Pending" | "Approved" | "Reimbursed";
 };
@@ -30,7 +31,10 @@ export const TripList = ({ trips }: { trips: Trip[] }) => {
               <div className="text-sm text-muted-foreground">{trip.purpose}</div>
               <div className="flex justify-between text-sm">
                 <span>{format(new Date(trip.date), "PPP")}</span>
-                <span className="font-semibold">${trip.amount}</span>
+                <div className="text-right">
+                  <div className="font-semibold">${trip.amount}</div>
+                  <div className="text-xs text-muted-foreground">{trip.amountPurpose}</div>
+                </div>
               </div>
             </div>
           </CardContent>
